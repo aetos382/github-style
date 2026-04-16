@@ -17,7 +17,8 @@
     <meta name="theme-color" content="#1e2327">
 
     {{ range .Site.Params.custom_css -}}
-    <link rel="stylesheet" href="{{ . | absURL }}">
+    {{ $style := resources.Get . }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
     {{- end }}
     {{ range .Site.Params.custom_js -}}
     <script type="text/javascript" src="{{ . | absURL }}"></script>
